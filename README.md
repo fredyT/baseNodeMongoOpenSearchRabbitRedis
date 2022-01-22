@@ -4,7 +4,8 @@
 ## minimal code to make sure they are all communicating. The ides is to take this  docker-compose and dockerfile and add it to our other project.
 
 There is a postman export that can be import into postman.
-It has 7 endpont calls.
+It has 7 endpont calls. baseNodeMongoOpenSearchRabbitRedis.postman_collection.json
+
 On get / is just a hello world to check.
 There are 4 post that will create contentType in mongo as well as index them in opensearch. The first 3  endpoints use the endpont that indexs in opensearch directly from the api call.
 
