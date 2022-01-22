@@ -1,0 +1,80 @@
+version: "3.2"
+
+services:
+  api:
+    container_name: api
+    restart: always
+    build: .
+    depends_on:
+      - mongo
+      - opensearch
+    environment:
+      - APP_NAME=SMOIN
+      - NODE_ENV=development
+      - NODE_PORT=8080
+      - NODE_HOST=api
+      - MONGODB_URI=mongodb://mongo:27017/emainstreet
+      - GRID_PATH='media'
+      - MONGODB_POOLSIZE=50
+      - MONGODB_RECONNECTINTERVAL=1000
+      - REDIS_URL=redis://redis:6379
+      - REDIS_SECRET='Lagatanohablaespanol'
+      - OPENSEARCH_HOST=opensearch
+      - RABBIT_HOST=rabbitmq
+    stdin_open: true
+    tty: true
+    ports:
+      - "8080:8080"
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: always
+    volumes:
+      - db:/data/db
+      - data:/data
+      - configdb:/data/configdb
+    ports:
+      - "27017:27017"
+  opensearch:
+    container_name: opensearch
+    environment:
+      - discovery.type=single-node
+    image: opensearchproject/opensearch:1.2.4
+    ports:
+      - 9200:9200
+      - 9600:9600
+  opensearch-dashboards:
+    image: opensearchproject/opensearch-dashboards:1.2.0
+    depends_on:
+      - opensearch
+    container_name: opensearch-dashboards-bigw
+    ports:
+      - 5601:5601
+    expose:
+      - "5601"
+    environment:
+      OPENSEARCH_HOSTS: '["https://opensearch:9200"]' # must be a string with no spaces when specified as an environment variable
+
+  rabbitmq:
+    container_name: rabbitmq
+    image: 'rabbitmq:3.9.10-management-alpine'
+    ports:
+      # The standard AMQP protocol port
+      - '5672:5672'
+      # HTTP management UI
+      - '15672:15672'
+    environment:
+      # The location of the RabbitMQ server.  "amqp" is the protocol;
+      # "rabbitmq" is the hostname.  Note that there is not a guarantee
+      # that the server will start first!  Telling the pika client library
+      # to try multiple times gets around this ordering issue.
+      AMQP_URL: 'amqp://rabbitmq?connection_attempts=5&retry_delay=5'
+      RABBITMQ_DEFAULT_USER: "guest"
+      RABBITMQ_DEFAULT_PASS: "guest"
+    
+   
+volumes:
+  db:
+  data:
+  configdb:
+

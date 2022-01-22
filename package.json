@@ -1,0 +1,52 @@
+{
+  "name": "playgroudbigw",
+  "version": "1.0.0",
+  "description": "This is a template project that can be cloned and leveage as a starting point for REST api projects. Targeting the BigW project",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "NODE_ENV=production node app.js",
+    "dev": "NODE_ENV=development  npx nodemon app.js"
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fredyT/playgroudBigW.git"
+  },
+  "keywords": [
+    "bigw",
+    "playground"
+  ],
+  "author": "Brothers from 524 E main",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fredyT/playgroudBigW/issues"
+  },
+  "homepage": "https://github.com/fredyT/playgroudBigW#readme",
+  "dependencies": {
+    "@opensearch-project/opensearch": "^1.0.2",
+    "accesscontrol": "^2.2.1",
+    "amqplib": "^0.8.0",
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "dotenv": "^14.2.0",
+    "express": "^4.17.2",
+    "express-session": "^1.17.2",
+    "helmet": "^5.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.6",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.7.2",
+    "nodemon": "^2.0.15",
+    "passport": "^0.5.2",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.1.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "cross-env": "^7.0.3",
+    "mocha": "^9.1.4"
+  }
+}

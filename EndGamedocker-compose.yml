@@ -1,0 +1,61 @@
+version: "3.2"
+
+services:
+  mytemplate:
+    container_name: SMOIN
+    restart: always
+    build: .
+    environment:
+      - APP_NAME=SMOIN
+      - NODE_ENV=development
+      - PORT=8080
+      - MONGODB_URI=mongodb://mongo:27017/smoin
+      - GRID_PATH='media'
+      - MONGODB_POOLSIZE=50
+      - MONGODB_RECONNECTINTERVAL=1000
+      - REDIS_URL=redis://redis:6379
+      - REDIS_SECRET='Lagatanohablaespanol'
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongo
+      - redis
+    links:
+      - mongo
+      - redis
+  mongo:
+    container_name: mongo-smoin
+    restart: always
+    volumes:
+      - db:/data/db
+      - data:/data
+      - configdb:/data/configdb
+    image: mongo
+    ports:
+      - "27017:27017"
+  redis:
+    container_name: redis-smoin
+    restart: always
+    volumes:
+      - data:/data
+    image: redis
+    ports:
+      - "6379:6379"
+  opensearch:
+    container_name: opensearch-smoin
+    environment:
+      - discovery.type=single-node
+    image: opensearchproject/opensearch:latest
+    ports:
+      - 9200:9200
+      - 9600:9600
+  rabbitmq:
+    container_name: rabbitmq-smoin
+    image: rabbitmq:alpine
+    ports:
+      - 5672:5672
+
+volumes:
+  db:
+  data:
+  configdb:

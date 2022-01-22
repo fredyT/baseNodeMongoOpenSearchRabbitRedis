@@ -1,0 +1,284 @@
+{
+	"info": {
+		"_postman_id": "43e328ce-d852-42b4-97b9-9209e00b9f3b",
+		"name": "baseNodeMongoOpenSearchRabbitRedis",
+		"description": "Api to use with the basedocer project.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get /",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZTNhZWZmYTBjYjRiNGY5N2JlOTI1ZCIsInJvbGUiOiJzdXBlcnZpc29yIiwiYWNjb3VudElkIjoiNjFlM2E5NmZiYjU2NmMzNWRkZmQ4ODY1IiwiZXhwaXJlIjoxNjQzMDY3NTkyNTI4LCJpYXQiOjE2NDI0NjI3OTJ9.1iBPGyMSf_FdeE8n6KW6_oxHPcq_ut5qK2JqhtVHgnc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"signUpDate\": \"2022-01-15\",\n  \"expirationDate\": \"2023-01-15\",\n  \"accountName\": \"Slate Rock and Gravel Company\",\n  \"address\": [\n    {\n      \"addressType\": \"street\",\n      \"adressee\": \"Mr Slate\",\n      \"addr1\": \"Qurrie way\",\n      \"city\": \"Bedrock\",\n      \"state\": \"Louisiana\",\n      \"postalCode\": \"70777\"\n    }\n  ],\n  \"industry\" : \"Service\",\n  \"source\" : \"Not sure\",\n  \"accountContactPhone\": 2337625\n}"
+				},
+				"url": {
+					"raw": "http://{{uri}}/",
+					"protocol": "http",
+					"host": [
+						"{{uri}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a container type for an account",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZTYwZDI0M2U3NDUyYjljZTcyN2RiNCIsInJvbGUiOiJzdXBlcmFkbWluIiwiYWNjb3VudElkIjoiNjFlNjBjYTEzZTc0NTJiOWNlNzI3ZGFmIiwiZXhwaXJlIjoxNjQzMDcyMjE3MTQxLCJpYXQiOjE2NDI0Njc0MTd9.VV9WiLrpDhY32HGJnh4ySyG5gsoOBonh0NTSR8surYQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"type\" : \"mobile\"\n}"
+				},
+				"url": {
+					"raw": "http://{{uri}}/containertypes",
+					"protocol": "http",
+					"host": [
+						"{{uri}}"
+					],
+					"path": [
+						"containertypes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add 2 a container type for an account",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZTYwZDI0M2U3NDUyYjljZTcyN2RiNCIsInJvbGUiOiJzdXBlcmFkbWluIiwiYWNjb3VudElkIjoiNjFlNjBjYTEzZTc0NTJiOWNlNzI3ZGFmIiwiZXhwaXJlIjoxNjQzMDcyMjE3MTQxLCJpYXQiOjE2NDI0Njc0MTd9.VV9WiLrpDhY32HGJnh4ySyG5gsoOBonh0NTSR8surYQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"type\" : \"shipping\"\n}"
+				},
+				"url": {
+					"raw": "http://{{uri}}/containertypes",
+					"protocol": "http",
+					"host": [
+						"{{uri}}"
+					],
+					"path": [
+						"containertypes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add 3 a container type for an account",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZTYwZDI0M2U3NDUyYjljZTcyN2RiNCIsInJvbGUiOiJzdXBlcmFkbWluIiwiYWNjb3VudElkIjoiNjFlNjBjYTEzZTc0NTJiOWNlNzI3ZGFmIiwiZXhwaXJlIjoxNjQzMDcyMjE3MTQxLCJpYXQiOjE2NDI0Njc0MTd9.VV9WiLrpDhY32HGJnh4ySyG5gsoOBonh0NTSR8surYQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"type\" : \"workstation\"\n}"
+				},
+				"url": {
+					"raw": "http://{{uri}}/containertypes",
+					"protocol": "http",
+					"host": [
+						"{{uri}}"
+					],
+					"path": [
+						"containertypes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add 4 a container type using Rabbit mq",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZTYwZDI0M2U3NDUyYjljZTcyN2RiNCIsInJvbGUiOiJzdXBlcmFkbWluIiwiYWNjb3VudElkIjoiNjFlNjBjYTEzZTc0NTJiOWNlNzI3ZGFmIiwiZXhwaXJlIjoxNjQzMDcyMjE3MTQxLCJpYXQiOjE2NDI0Njc0MTd9.VV9WiLrpDhY32HGJnh4ySyG5gsoOBonh0NTSR8surYQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"type\" : \"fixed\"\n}"
+				},
+				"url": {
+					"raw": "http://{{uri}}/containertypes/queue",
+					"protocol": "http",
+					"host": [
+						"{{uri}}"
+					],
+					"path": [
+						"containertypes",
+						"queue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get a list of  container types for an account -uses mongo search",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZTYwZDI0M2U3NDUyYjljZTcyN2RiNCIsInJvbGUiOiJzdXBlcmFkbWluIiwiYWNjb3VudElkIjoiNjFlNjBjYTEzZTc0NTJiOWNlNzI3ZGFmIiwiZXhwaXJlIjoxNjQzMDcyMjE3MTQxLCJpYXQiOjE2NDI0Njc0MTd9.VV9WiLrpDhY32HGJnh4ySyG5gsoOBonh0NTSR8surYQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"type\" : \"mobile\"\n}"
+				},
+				"url": {
+					"raw": "http://{{uri}}/containertypes",
+					"protocol": "http",
+					"host": [
+						"{{uri}}"
+					],
+					"path": [
+						"containertypes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search  containerType - uses opensearch",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZTYwZDI0M2U3NDUyYjljZTcyN2RiNCIsInJvbGUiOiJzdXBlcmFkbWluIiwiYWNjb3VudElkIjoiNjFlNjBjYTEzZTc0NTJiOWNlNzI3ZGFmIiwiZXhwaXJlIjoxNjQzMDcyMjE3MTQxLCJpYXQiOjE2NDI0Njc0MTd9.VV9WiLrpDhY32HGJnh4ySyG5gsoOBonh0NTSR8surYQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"query\": {\n            \"match_all\": { }\n        }\n}"
+				},
+				"url": {
+					"raw": "http://{{uri}}/containertypes/search",
+					"protocol": "http",
+					"host": [
+						"{{uri}}"
+					],
+					"path": [
+						"containertypes",
+						"search"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
